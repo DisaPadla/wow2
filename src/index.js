@@ -1,5 +1,8 @@
 var statsEl = document.getElementById('stats');
 
+var CONCURRENCY_LIMIT = 1000;
+var queue = [];
+
 var targets = {
   'https://lenta.ru/': { number_of_requests: 0, number_of_errored_responses: 0, label: 'Obozrevatel.com' },
   'https://ria.ru/': { number_of_requests: 0, number_of_errored_responses: 0, label: 'Segodnya.ua' },
@@ -58,9 +61,6 @@ function printStats() {
 }
 
 setInterval(printStats, 1000);
-
-var CONCURRENCY_LIMIT = 1000;
-var queue = [];
 
 async function fetchWithTimeout(resource, options) {
   const controller = new AbortController();
