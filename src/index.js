@@ -36,7 +36,6 @@ var targets = {
   'https://www.gazprombank.ru/': { number_of_requests: 0, number_of_errored_responses: 0, label: 'Radiosvoboda.org' },
   'https://www.vtb.ru/': { number_of_requests: 0, number_of_errored_responses: 0, label: 'Slovoidilo.ua' },
   'https://magnit.ru/': { number_of_requests: 0, number_of_errored_responses: 0, label: 'Kp.ua' },
-  'https://www.nornickel.com/': { number_of_requests: 0, number_of_errored_responses: 0, label: 'Lenta.ru' },
   'https://www.surgutneftegas.ru/': { number_of_requests: 0, number_of_errored_responses: 0, label: 'Focus.ua' },
   'https://www.tatneft.ru/': { number_of_requests: 0, number_of_errored_responses: 0, label: 'Fakty.ua' },
   'https://www.evraz.com/ru/': { number_of_requests: 0, number_of_errored_responses: 0, label: 'Zaxid.net' },
