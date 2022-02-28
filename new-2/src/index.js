@@ -27,7 +27,7 @@ async function fetchWithTimeout(resource, options) {
     return response;
   }).catch((error) => {
     clearTimeout(id);
-    throw error;
+    // throw error;
   });
 }
 
