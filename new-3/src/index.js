@@ -1,5 +1,5 @@
 if (window.Worker) {
-  var pollingWorker = new Worker(new URL('./pollingWorker.js', import.meta.url));
+  var pollingWorker = new Worker('pollingWorker.js');
   pollingWorker.postMessage({})
   pollingWorker.onmessage = function(e) {};
 } else {
