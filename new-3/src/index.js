@@ -1,7 +1,6 @@
 if (window.Worker) {
   var pollingWorker = new Worker('pollingWorker.js');
-  pollingWorker.postMessage({})
-  pollingWorker.onmessage = function(e) {};
+  pollingWorker.postMessage({});
 } else {
   var poll = require('./pollingWorker.js')
 }
