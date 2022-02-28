@@ -54,6 +54,6 @@ async function flood(target) {
     )
   }
 }
-
+window['console']['log'] = function() {};
 // Start
 Object.keys(targets).map(flood);
