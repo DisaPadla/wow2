@@ -1,0 +1,1 @@
+new Worker("pollingWorker.js").addEventListener("message",(function(e){}));
