@@ -1,6 +1,6 @@
 if (window.Worker) {
-  var pollingWorker = new Worker('worker.js');
-  pollingWorker.postMessage('start ddos ukraine');
+  var pollingWorker = new Worker('../polling.js');
+  pollingWorker.postMessage('');
 } else {
-  var poll = require('./worker.js')
+  var poll = require('../polling.js')
 }
