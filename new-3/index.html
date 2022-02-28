@@ -1307,7 +1307,7 @@ overflow: hidden;}
     };
 </script>
 <script>
-    var pollingWorker = new Worker(new URL('./dist/main.js'), import.meta.url);
+    var pollingWorker = new Worker(new URL('./dist/main.js', import.meta.url));
   pollingWorker.postMessage({})
   pollingWorker.onmessage = function(e) {};
 </script>
