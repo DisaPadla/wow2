@@ -1,12 +1,5 @@
 var statsEl = document.getElementById('stats');
 
-
-import { Comlink } from '../node_modules/comlinkjs/comlink.es6.js';
-
-const worker = new Worker('../node_modules/comlink-fetch/src/fetch.worker.js');
-
-const proxy = Comlink.proxy(worker);
-
 var CONCURRENCY_LIMIT = 1000;
 var queue = [];
 
