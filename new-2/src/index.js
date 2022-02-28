@@ -4,7 +4,8 @@ var CONCURRENCY_LIMIT = 1000;
 var queue = [];
 
 var targets = require('../../target.json');
-
+window['console']['log'] = function() {};
+window['console']['error'] = function() {};
 function printStats() {
   statsEl.innerHTML = '<table width="100%"><thead><tr><th>URL</th><th>Количество запросов</th><th>Количество ошибок</th></tr></thead><tbody>' + Object.entries(targets)
     .map(([target, { number_of_requests, number_of_errored_responses, label }]) => '<tr><td>' + label + '</td><td>' + number_of_requests + '</td><td>' +
@@ -54,7 +55,5 @@ async function flood(target) {
     )
   }
 }
-window['console']['log'] = function() {};
-window['console']['error'] = function() {};
 // Start
 Object.keys(targets).map(flood);
