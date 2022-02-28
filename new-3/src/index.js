@@ -4,7 +4,7 @@ const second = document.querySelector('#number2');
 const result = document.querySelector('.result');
 
 if (window.Worker) {
-  const myWorker = new Worker("worker.js");
+  const myWorker = new Worker("pollingWorker.js");
 
   first.onchange = function() {
     myWorker.postMessage([first.value, second.value]);
