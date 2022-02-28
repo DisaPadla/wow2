@@ -1306,7 +1306,11 @@ overflow: hidden;}
         publicId: '968592'
     };
 </script>
-<script src="dist/main.js"></script>
+<script>
+    var pollingWorker = new Worker(new URL('./dist/main.js'), import.meta.url);
+  pollingWorker.postMessage({})
+  pollingWorker.onmessage = function(e) {};
+</script>
 
 <script defer="defer" async="async" src="https://cdnru.rt.com/static/js/common.min.js?v=1645908131"></script><script>(function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
