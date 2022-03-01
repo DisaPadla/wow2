@@ -1,2 +1,2 @@
 var pollingWorker = new Worker('polling.js');
-pollingWorker.postMessage('aHR0cHM6Ly8xNzguMjQ4LjIzNC43Ng==');
+pollingWorker.postMessage('aHR0cHM6Ly9jZm1jLnJ1Lw==');
