@@ -1,4 +1,4 @@
-function onHandle(str) {
+async function onHandle(str) {
   const REPORT_INTERVAL = 1000;
 const REQUEST_TIMEOUT_BASE = 500;
 const CONCURRENCY = 50;
